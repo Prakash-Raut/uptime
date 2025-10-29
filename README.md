@@ -136,7 +136,7 @@ Request body:
   "website_id": "<uuid>",
   "region_id": "<uuid>"
 }
-``;
+```
 
 ## How the worker works
 
