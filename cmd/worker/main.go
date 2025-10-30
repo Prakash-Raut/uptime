@@ -30,5 +30,11 @@ func main() {
 	}
 
 	wg.Wait()
+
+	// ✅ Batch insert all ticks once
+	if err := consumer.BatchInsertTicks(); err != nil {
+		log.Printf("failed to insert ticks: %v", err)
+	}
+
 	fmt.Println("✅ All workers done")
 }
