@@ -87,8 +87,8 @@ Base URL: `http://localhost:8080`
 
 ### Websites
 
-- `GET /api/websites` – list websites
-- `POST /api/websites` – create website
+- `GET /api/v1/websites` – list websites
+- `POST /api/v1/websites` – create website
 
 Request body:
 
@@ -111,8 +111,8 @@ Response example:
 
 ### Regions
 
-- `GET /api/regions` – list regions
-- `POST /api/regions` – create region
+- `GET /api/v1/regions` – list regions
+- `POST /api/v1/regions` – create region
 
 Request body:
 
@@ -124,8 +124,8 @@ Request body:
 
 ### Ticks
 
-- `GET /api/ticks` – list ticks
-- `POST /api/ticks` – create tick
+- `GET /api/v1/ticks` – list ticks
+- `POST /api/v1/ticks` – create tick
 
 Request body:
 
@@ -154,18 +154,18 @@ Request body:
 
 ```bash
 # Create a website
-curl -X POST http://localhost:8080/api/websites \
+curl -X POST http://localhost:8080/api/v1/websites \
   -H "Content-Type: application/json" \
   -d '{"url":"https://example.com"}'
 
 # List websites
-curl http://localhost:8080/api/websites
+curl http://localhost:8080/api/v1/websites
 
 # Create a region
-curl -X POST http://localhost:8080/api/regions \
+curl -X POST http://localhost:8080/api/v1/regions \
   -H "Content-Type: application/json" \
   -d '{"name":"us-east-1"}'
 
 # List ticks
-curl http://localhost:8080/api/ticks
+curl http://localhost:8080/api/v1/ticks
 ```

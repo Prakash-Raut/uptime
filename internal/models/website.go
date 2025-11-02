@@ -9,4 +9,8 @@ type Website struct {
 	Url       string    `json:"url"`
 	TimeAdded time.Time `json:"time_added"`
 	Ticks     []Tick    `gorm:"foreignKey:WebsiteID;constraint:OnDelete:CASCADE;" json:"ticks"`
+
+	// Foreign key to User
+	UserID string `gorm:"type:uuid;not null" json:"user_id"`
+	User   User   `gorm:"constraint:OnDelete:CASCADE;" json:"user,omitempty"`
 }
