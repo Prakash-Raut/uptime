@@ -1,14 +1,24 @@
-import "dotenv/config";
-
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../prisma/generated/client.js";
 
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString) {
-	throw new Error("DATABASE_URL environment variable is required");
+type GetDbParams = {
+	connectionString: string;
+};
+
+function getDb({ connectionString }: GetDbParams): PrismaClient {
+	const pool = new PrismaPg({ connectionString });
+	const prisma = new PrismaClient({ adapter: pool });
+
+	return prisma;
 }
 
-const adapter = new PrismaPg({ connectionString });
-const prisma = new PrismaClient({ adapter });
+// This export is needed to avoid the TypeScript error:
+// ```
+// The inferred type of 'prisma' cannot be named without a reference to '../node_modules/@repo/database/src/generated/prisma/client'.
+// This is likely not portable. A type annotation is necessary.ts(2742)
+// ```
+export type { PrismaClient } from "../prisma/generated/client";
 
-export default prisma;
+const db = getDb({ connectionString: process.env.DATABASE_URL as string });
+
+export default db;

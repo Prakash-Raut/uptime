@@ -5,10 +5,8 @@
 		"declarationMap": true,
 		"sourceMap": true,
 		"outDir": "dist",
-		"composite": true,
-		"skipLibCheck": true,
-		"moduleResolution": "bundler"
+		"composite": true
 	},
-	"include": ["src", "prisma"],
+	"include": ["**/*.ts"],
 	"exclude": ["node_modules", "dist"]
 }
