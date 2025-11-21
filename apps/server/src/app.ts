@@ -13,7 +13,6 @@ export const createExpressServer = () => {
 
 	app
 		.disable("x-powered-by")
-		.use(express.static("public"))
 		.use(
 			cors({
 				origin: process.env.CORS_ORIGIN || "",
