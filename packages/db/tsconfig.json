@@ -8,5 +8,5 @@
 		"composite": true,
 		"skipLibCheck": true
 	},
-	"exclude": ["prisma/generated", "node_modules"]
+	"exclude": ["node_modules"]
 }
