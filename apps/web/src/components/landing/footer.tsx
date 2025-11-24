@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,8 +8,7 @@ const logo = {
 	title: "Uptime",
 	url: "/",
 };
-const tagline =
-	"Monitor your websites, APIs, and servers in real time. Get instant alerts when something goes wrong — before your users notice.";
+
 const menuItems = [
 	{
 		id: 1,
@@ -62,7 +59,6 @@ export default function Footer() {
 									<LogoText className="text-xl">{logo.title}</LogoText>
 								</Logo>
 							</div>
-							<p className="mt-4 max-w-sm font-medium text-sm">{tagline}</p>
 						</div>
 						{menuItems.map((section) => (
 							<div key={section.id}>

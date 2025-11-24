@@ -1,5 +1,3 @@
-"use client";
-
 import { ChevronRightIcon } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
@@ -10,17 +8,17 @@ export default function Hero() {
 			<div className="container mx-auto flex max-w-6xl flex-col items-center space-y-10 border-x px-8 py-5">
 				<Badge
 					variant="outline"
-					className="px-4 py-1.5 font-medium text-gray-500"
+					className="px-4 py-1.5 font-medium text-gray-600 bg-accent"
 				>
 					Backed by 100xDevs
 				</Badge>
-				<h1 className="max-w-4xl text-center font-semibold text-7xl tracking-tight">
-					{/* Never miss a beat with Uptime */}
-					The only app you Need to Stay Online
+				<h1 className="max-w-4xl text-center font-semibold text-7xl tracking-tight text-balance">
+					Monitor your uptime <br />
+					Track every incident
 				</h1>
 				<p className="max-w-lg text-center">
-					Monitor your websites, APIs, and servers in real time. Get instant
-					alerts when something goes wrong — before your users notice.
+					Real-time monitoring for your websites and APIs. Get instant alerts
+					when something goes down.
 				</p>
 				<div className="flex items-center justify-center">
 					<Button className="transition-all duration-300">

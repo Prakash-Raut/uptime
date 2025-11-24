@@ -1,4 +1,8 @@
-"use client";
+const moreFeatures = {
+	headline: "Automatic monitoring",
+	description:
+		"Catch downtime before your users do. Get instant alerts when something goes wrong.",
+};
 
 export default function MoreFeatures() {
 	return (
@@ -13,11 +17,8 @@ export default function MoreFeatures() {
 					}}
 				>
 					<div className="space-y-4">
-						<h3 className="font-semibold text-5xl">Smart Automated Checks</h3>
-						<p className="max-w-md">
-							Proactively catch downtime with intelligent monitoring and
-							lightning-fast notifications—before your users even notice.
-						</p>
+						<h3 className="font-semibold text-5xl">{moreFeatures.headline}</h3>
+						<p className="max-w-lg">{moreFeatures.description}</p>
 					</div>
 				</div>
 			</div>

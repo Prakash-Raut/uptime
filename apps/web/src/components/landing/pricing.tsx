@@ -1,11 +1,5 @@
 "use client";
 
-import {
-	ArrowUpRightIcon,
-	CircleCheckIcon,
-	CircleHelpIcon,
-} from "lucide-react";
-import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -16,6 +10,12 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import {
+	ArrowUpRightIcon,
+	CircleCheckIcon,
+	CircleHelpIcon,
+} from "lucide-react";
+import { useState } from "react";
 
 const tooltipContent = {
 	styles: "Choose from a variety of styles to suit your preferences.",
