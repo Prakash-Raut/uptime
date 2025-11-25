@@ -1,10 +1,6 @@
 import { requireAuth } from "@/lib/auth-util";
 
-export default async function DashboardPage() {
+export default async function Dashboard() {
 	await requireAuth();
-	return (
-		<div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-			<h1>Home</h1>
-		</div>
-	);
+	return <div>Home</div>;
 }

@@ -7,7 +7,7 @@ export const server = createExpressServer();
 
 void (function main() {
 	try {
-		server.listen(PORT, () => {
+		server.listen(PORT, async () => {
 			logger.info({ port: PORT }, "🔥API is live");
 		});
 	} catch (error) {

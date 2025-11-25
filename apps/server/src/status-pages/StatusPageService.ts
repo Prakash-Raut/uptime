@@ -58,7 +58,10 @@ export class StatusPageService {
 		});
 	}
 
-	public async deleteStatusPage(userId: string, id: string): Promise<string> {
+	public async deleteStatusPage(
+		userId: string,
+		id: string,
+	): Promise<{ id: string }> {
 		return await db.statusPage.delete({
 			where: {
 				id: id,

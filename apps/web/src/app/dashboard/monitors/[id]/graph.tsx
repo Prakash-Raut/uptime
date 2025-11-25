@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { LineChart, Line, XAxis, CartesianGrid } from "recharts";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
+	CardContent,
+	CardDescription,
 	CardHeader,
 	CardTitle,
-	CardDescription,
-	CardContent,
 } from "@/components/ui/card";
 import {
 	ChartContainer,
@@ -16,6 +14,8 @@ import {
 	ChartTooltipContent,
 	type ChartConfig,
 } from "@/components/ui/chart";
+import { useState } from "react";
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 const chartConfig = {
 	asia: {

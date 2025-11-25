@@ -1,6 +1,6 @@
 import { server } from "@/index";
 import { faker } from "@faker-js/faker";
-import db from "@uptime/db";
+import db from "@/config/db";
 import {
 	afterAll,
 	afterEach,

@@ -49,7 +49,10 @@ export class MonitorService {
 		});
 	}
 
-	public async deleteMonitor(userId: string, id: string): Promise<string> {
+	public async deleteMonitor(
+		userId: string,
+		id: string,
+	): Promise<{ id: string }> {
 		return await db.monitor.delete({
 			where: { id, userId: userId },
 			select: {

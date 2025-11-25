@@ -2,22 +2,19 @@
 	"name": "@uptime/db",
 	"type": "module",
 	"exports": {
-		".": {
-			"import": "./dist/index.js",
-			"types": "./dist/index.d.ts"
-		}
+		".": "./src/index.ts"
 	},
 	"scripts": {
-		"build": "prisma generate",
+		"db:migrate:deploy": "prisma migrate deploy",
+		"db:migrate:dev": "prisma migrate dev",
 		"db:push": "prisma db push",
-		"db:studio": "prisma studio",
-		"db:generate": "prisma generate",
-		"db:migrate": "prisma migrate dev",
-		"db:reset": "prisma migrate reset",
-		"db:start": "docker compose up -d",
-		"db:watch": "docker compose up",
-		"db:stop": "docker compose stop",
-		"db:down": "docker compose down"
+		"db:seed": "prisma db seed",
+		"dev": "tsup src/* --format esm --watch",
+		"format": "prisma format",
+		"generate": "prisma generate",
+		"prebuild": "bun run generate",
+		"predev": "bun run generate",
+		"studio": "prisma studio"
 	},
 	"devDependencies": {
 		"@types/pg": "^8.15.6",
@@ -32,14 +29,5 @@
 	},
 	"peerDependencies": {
 		"typescript": "^5"
-	},
-	"turbo": {
-		"tasks": {
-			"build": {
-				"env": [
-					"DATABASE_URL"
-				]
-			}
-		}
 	}
 }

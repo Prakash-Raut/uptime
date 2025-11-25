@@ -1,10 +1,163 @@
 generator client {
-  provider     = "prisma-client"
-  output       = "../generated"
-  moduleFormat = "esm"
-  runtime      = "bun"
+  provider = "prisma-client"
+  output   = "../generated"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model User {
+  id            String       @id @default(uuid())
+  name          String
+  email         String
+  emailVerified Boolean
+  image         String?
+  createdAt     DateTime
+  updatedAt     DateTime
+  sessions      Session[]
+  accounts      Account[]
+  monitors      Monitor[]
+  statusPages   StatusPage[]
+
+  @@unique([email])
+  @@map("user")
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  expiresAt DateTime
+  token     String
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id @default(uuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime
+  updatedAt             DateTime
+
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id @default(uuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+  updatedAt  DateTime?
+
+  @@map("verification")
+}
+
+model Monitor {
+  id   String @id @default(uuid())
+  name String
+  url  String
+  freq String @default("5m")
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  ticks Tick[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("monitor")
+}
+
+model Region {
+  id   String @id @default(uuid())
+  name String
+  code String @unique
+
+  ticks Tick[]
+
+  @@map("region")
+}
+
+model Tick {
+  id             String        @id @default(uuid())
+  status         MonitorStatus
+  responseTimeMs Int?
+  errorMessage   String?
+  checkedAt      DateTime      @default(now())
+
+  regionId String
+  region   Region @relation(fields: [regionId], references: [id], onDelete: Cascade)
+
+  monitorId String
+  monitor   Monitor @relation(fields: [monitorId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tick")
+}
+
+enum MonitorStatus {
+  UP
+  DOWN
+  UNKNOWN
+
+  @@map("monitor_status")
+}
+
+model StatusPage {
+  id       String  @id @default(uuid())
+  slug     String  @unique
+  title    String
+  isPublic Boolean @default(true)
+  verified Boolean @default(false)
+
+  incidents Incident[]
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("status_page")
+}
+
+model Incident {
+  id          String         @id @default(uuid())
+  title       String
+  description String?
+  status      IncidentStatus @default(ONGOING)
+  startedAt   DateTime       @default(now())
+  resolvedAt  DateTime?
+
+  statusPageId String
+  statusPage   StatusPage @relation(fields: [statusPageId], references: [id], onDelete: Cascade)
+
+  @@map("incident")
+}
+
+enum IncidentStatus {
+  ONGOING
+  RESOLVED
+
+  @@map("incident_status")
 }

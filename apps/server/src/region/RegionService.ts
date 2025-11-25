@@ -3,7 +3,6 @@ import type {
 	RegionCreateInput,
 	RegionUpdateInput,
 } from "node_modules/@uptime/db/prisma/generated/models";
-
 export class RegionService {
 	public async createRegion(region: RegionCreateInput) {
 		return await db.region.create({
