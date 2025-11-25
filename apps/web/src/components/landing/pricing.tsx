@@ -74,8 +74,11 @@ export default function Pricing() {
 	return (
 		<section className="w-full border-b">
 			<div className="container mx-auto flex max-w-6xl flex-col items-center space-y-10 border-x px-8 py-5">
-				<h2 className="text-center font-semibold text-5xl tracking-tighter sm:text-6xl">
+				<h3 className="text-2xl font-semibold tracking-tight text-green-400 uppercase">
 					Pricing
+				</h3>
+				<h2 className="text-3xl font-bold tracking-tight text-center md:text-5xl">
+					Choose the plan that's right for you
 				</h2>
 				<div className="flex w-full items-center justify-center">
 					<div className="flex flex-col items-center justify-center">

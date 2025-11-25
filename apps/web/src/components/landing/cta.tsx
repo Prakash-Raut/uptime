@@ -1,11 +1,7 @@
-"use client";
-
-import { ChevronRightIcon } from "lucide-react";
 import { Button } from "../ui/button";
 
 const cta = {
-	headline: "Try Uptime now.",
-	buttonText: "Start free trial",
+	headline: "Start with a free trial today!",
 };
 
 export default function CTA() {
@@ -20,13 +16,17 @@ export default function CTA() {
 		>
 			<div className="container mx-auto flex max-w-6xl flex-col items-center space-y-10 px-8 py-5">
 				<div className="flex h-[562px] w-full flex-col items-center justify-center space-y-4">
-					<p className="max-w-3xl text-center font-medium text-5xl tracking-tight">
+					<h2 className="scroll-m-20 text-3xl font-bold tracking-tight text-center md:text-5xl">
 						{cta.headline}
-					</p>
-					<Button className="transition-all duration-300">
-						<span>{cta.buttonText}</span>
-						<ChevronRightIcon className="h-4 w-4" />
-					</Button>
+					</h2>
+					<div className="flex items-center justify-center gap-2">
+						<Button className="transition-all duration-300">
+							<span>Sign up for free</span>
+						</Button>
+						<Button variant="outline" className="transition-all duration-300">
+							<span>Book a demo</span>
+						</Button>
+					</div>
 				</div>
 			</div>
 		</section>

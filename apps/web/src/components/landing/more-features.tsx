@@ -17,8 +17,12 @@ export default function MoreFeatures() {
 					}}
 				>
 					<div className="space-y-4">
-						<h3 className="font-semibold text-5xl">{moreFeatures.headline}</h3>
-						<p className="max-w-lg">{moreFeatures.description}</p>
+						<h3 className="scroll-m-20 text-3xl font-bold tracking-tight md:text-5xl">
+							{moreFeatures.headline}
+						</h3>
+						<p className="max-w-lg text-base md:text-lg leading-relaxed">
+							{moreFeatures.description}
+						</p>
 					</div>
 				</div>
 			</div>
