@@ -1,7 +1,7 @@
 import logger from "@uptime/logger";
 import { createExpressServer } from "./app";
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 export const server = createExpressServer();
 
