@@ -37,6 +37,7 @@
 			"persistent": true
 		},
 		"db:generate": {
+			"dependsOn": ["^db:generate"],
 			"cache": false,
 			"persistent": true
 		},
