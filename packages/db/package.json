@@ -14,7 +14,8 @@
 		"generate": "prisma generate",
 		"prebuild": "bun run generate",
 		"predev": "bun run generate",
-		"studio": "prisma studio"
+		"studio": "prisma studio",
+		"postinstall": "prisma generate"
 	},
 	"devDependencies": {
 		"@types/pg": "^8.15.6",
