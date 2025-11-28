@@ -1,0 +1,13 @@
+{
+	"version": 2,
+	"installCommand": "bun install --no-save",
+	"buildCommand": "bun run -F @uptime/api build",
+	"framework": "express",
+	"outputDirectory": "apps/api/dist",
+	"rewrites": [
+		{
+			"source": "/(.*)",
+			"destination": "/api/index"
+		}
+	]
+}

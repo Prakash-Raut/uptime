@@ -12,10 +12,7 @@
 		"dev": "tsup src/* --format esm --watch",
 		"format": "prisma format",
 		"generate": "prisma generate",
-		"prebuild": "bun run generate",
-		"predev": "bun run generate",
-		"studio": "prisma studio",
-		"postinstall": "prisma generate"
+		"studio": "prisma studio"
 	},
 	"devDependencies": {
 		"@types/pg": "^8.15.6",

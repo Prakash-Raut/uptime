@@ -38,10 +38,11 @@ export const createExpressServer = (): Express => {
 		// logger middleware
 		.use(loggerMiddleware)
 
-		// health check routes
 		.get("/", (_req, res) => {
-			res.send("Uptime");
+			res.send("Uptime API");
 		})
+
+		// health check
 		.get("/health", (_req, res) => {
 			res.send("OK");
 		})
