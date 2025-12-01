@@ -3,11 +3,9 @@
 	"main": "src/index.ts",
 	"type": "module",
 	"scripts": {
-		"build": "bun run -F @uptime/db generate && tsdown",
-		"check-types": "tsc -b",
 		"test": "bun test",
 		"dev": "bun run --hot index.ts",
-		"start": "bun dist/index.js",
+		"start": "bun src/index.ts",
 		"format": "biome format --write ."
 	},
 	"dependencies": {
