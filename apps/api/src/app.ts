@@ -10,7 +10,10 @@ import express from "express";
 
 const app: Express = express();
 
-const allowedOrigins = process.env.CORS_ORIGIN?.split(",") || [];
+const allowedOrigins = [
+	"http://localhost:3001",
+	"https://uptime-web-six.vercel.app",
+];
 
 app
 	.disable("x-powered-by")
@@ -19,36 +22,12 @@ app
 		cors({
 			origin: allowedOrigins,
 			methods: ["GET", "POST", "OPTIONS", "PATCH", "DELETE"],
-			allowedHeaders: [
-				"Content-Type",
-				"Authorization",
-				"Access-Control-Allow-Origin",
-			],
 			credentials: true,
 		}),
 	)
 
 	// better auth handler
-	.all("/api/auth/*splat", (req, res) => {
-		const origin = req.headers.origin;
-
-		if (allowedOrigins.includes(origin!)) {
-			res.header("Access-Control-Allow-Origin", origin);
-		}
-
-		res.header("Access-Control-Allow-Credentials", "true");
-		res.header(
-			"Access-Control-Allow-Headers",
-			"Content-Type, Authorization, Access-Control-Allow-Origin",
-		);
-		res.header("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,OPTIONS");
-
-		if (req.method === "OPTIONS") {
-			return res.sendStatus(200);
-		}
-
-		return toNodeHandler(auth)(req, res);
-	}) //  For ExpressJS v5
+	.all("/api/auth/*splat", toNodeHandler(auth)) //  For ExpressJS v5
 
 	// Mount express json middleware after Better Auth handler
 	// or only apply it to routes that don't interact with Better Auth
