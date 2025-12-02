@@ -1,15 +1,9 @@
 import dotenv from "dotenv";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { defineConfig, env } from "prisma/config";
+import path from "node:path";
 
-// Get the directory of the current file
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Load environment variables from server .env file
 dotenv.config({
-	path: path.join(__dirname, "../../.env"),
+	path: path.join("../../apps/api/.env"),
 });
 
 export default defineConfig({

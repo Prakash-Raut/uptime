@@ -43,6 +43,7 @@
 		},
 		"db:generate": {
 			"dependsOn": ["^db:generate"],
+			"env": ["DATABASE_URL"],
 			"cache": false,
 			"persistent": true
 		},

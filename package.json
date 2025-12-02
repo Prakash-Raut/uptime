@@ -26,7 +26,7 @@
 		"check-types": "turbo check-types",
 		"dev:native": "turbo -F native dev",
 		"dev:api": "turbo -F @uptime/api dev",
-		"prod:api": "turbo -F @uptime/api build && turbo -F @uptime/api start",
+		"prod:api": "turbo -F @uptime/api start",
 		"db:push": "turbo -F @uptime/db db:push",
 		"db:studio": "turbo -F @uptime/db db:studio",
 		"db:generate": "turbo -F @uptime/db db:generate",
