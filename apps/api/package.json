@@ -5,7 +5,7 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "bun run --hot src/index.ts",
-		"start": "bun run dist/index.js",
+		"start": "bun run build && bun run dist/index.js",
 		"format": "biome format --write .",
 		"test": "bun test"
 	},
