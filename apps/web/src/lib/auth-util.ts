@@ -1,14 +1,10 @@
+import { auth } from "@uptime/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { authClient } from "./auth-client";
 
 export const requireAuth = async () => {
-	const session = await authClient.getSession({
-		fetchOptions: {
-			headers: await headers(),
-			throw: true,
-			credentials: "include",
-		},
+	const session = await auth.api.getSession({
+		headers: await headers(),
 	});
 
 	if (!session || !session.session || !session.user) {
